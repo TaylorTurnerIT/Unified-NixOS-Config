@@ -1,7 +1,7 @@
 # modules/laptop/hidpi.nix
 # Display scaling for the 1920x1080 16" built-in panel on tuvalu.
 # 1.25x scaling matches the Windows DPI setting (120 DPI effective).
-# Applied to tuvalu only via tags.laptop = true.
+# Applied to tuvalu-laptop only via tags.laptop = true.
 { ... }:
 {
   # Wayland scaling — 1.25x for the built-in 1920x1080 16" panel

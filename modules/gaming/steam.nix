@@ -1,7 +1,7 @@
 # modules/gaming/steam.nix
 # Steam via the NixOS module (not as a plain package — the module sets up
 # the FHS chroot, controller support, and 32-bit library wiring).
-# Applied to fiji (desktop) only via tags.gaming = true.
+# Applied to fiji-desktop (desktop) only via tags.gaming = true.
 { pkgs, ... }:
 {
   # allowUnfreePredicate — scoped to Steam only, not a blanket allowUnfree = true

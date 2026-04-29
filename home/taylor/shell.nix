@@ -1,6 +1,6 @@
 # home/taylor/shell.nix
 # Fish shell, Starship prompt, aliases, environment variables, and Fish plugins.
-# Fully synced between fiji and tuvalu — no hardware conditionals.
+# Fully synced between fiji-desktop and tuvalu-laptop — no hardware conditionals.
 { pkgs, ... }:
 {
   # Fish shell — interactive shell

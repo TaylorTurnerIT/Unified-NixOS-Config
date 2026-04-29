@@ -57,8 +57,8 @@
 
   # fprintd — fingerprint enrollment
   # Enrollment done via: fprintd-enroll taylor && fprintd-verify taylor
-  # Phase 1: laptop (tuvalu) has built-in reader — enroll immediately after install
-  # Phase 1: desktop (fiji) — deferred until USB fingerprint reader is sourced
+  # Phase 1: laptop (tuvalu-laptop) has built-in reader — enroll immediately after install
+  # Phase 1: desktop (fiji-desktop) — deferred until USB fingerprint reader is sourced
   home.packages = with pkgs; [
     fprintd  # fprintd-enroll, fprintd-verify CLI tools
   ];

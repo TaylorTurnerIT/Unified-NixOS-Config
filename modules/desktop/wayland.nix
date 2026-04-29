@@ -1,6 +1,6 @@
 # modules/desktop/wayland.nix
 # Wayland environment variables and KWin flags.
-# Applied to all graphical hosts. HDR flags applied separately via hdr.nix (fiji only).
+# Applied to all graphical hosts. HDR flags applied separately via hdr.nix (fiji-desktop only).
 { ... }:
 {
   environment.sessionVariables = {

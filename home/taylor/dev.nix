@@ -1,6 +1,6 @@
 # home/taylor/dev.nix
 # Git configuration, delta diff pager, lazygit, and development tools.
-# Fully synced between fiji and tuvalu — no hardware conditionals.
+# Fully synced between fiji-desktop and tuvalu-laptop — no hardware conditionals.
 { pkgs, ... }:
 {
   # Git — declarative config via Home Manager

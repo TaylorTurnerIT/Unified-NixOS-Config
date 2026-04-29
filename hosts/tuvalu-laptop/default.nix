@@ -1,10 +1,10 @@
-# hosts/tuvalu/default.nix
+# hosts/tuvalu-laptop/default.nix
 # Laptop — ThinkPad T15 Gen1 (20S7S4CW06) | i7-10610U | Intel UHD | 32GB DDR4
 # 1920x1080 @ 1.25x scaling, 16", 60Hz built-in
 # Tags drive module composition via lib/mkHost.nix — do not import modules directly here.
 { config, pkgs, lib, tags, ... }:
 {
-  networking.hostName = "tuvalu";
+  networking.hostName = "tuvalu-laptop";
 
   # ---------------------------------------------------------------------------
   # Local user — Phase 1 only.
@@ -41,8 +41,8 @@
   # ---------------------------------------------------------------------------
   # sops-nix — Phase 2
   # ---------------------------------------------------------------------------
-  # sops.defaultSopsFile = ../../secrets/tuvalu.yaml;
-  # sops.age.keyFile     = "/persist/etc/age/tuvalu.key";
+  # sops.defaultSopsFile = ../../secrets/tuvalu-laptop.yaml;
+  # sops.age.keyFile     = "/persist/etc/age/tuvalu-laptop.key";
 
   system.stateVersion = "25.05";
 }

@@ -1,6 +1,6 @@
 # home/taylor/terminal.nix
 # Ptyxis terminal emulator, zellij multiplexer, and all terminal utility packages.
-# Fully synced between fiji and tuvalu — no hardware conditionals.
+# Fully synced between fiji-desktop and tuvalu-laptop — no hardware conditionals.
 { pkgs, ... }:
 {
   # Ptyxis — GTK4/libadwaita terminal with container support
@@ -38,7 +38,7 @@
 
     # System monitoring
     btop         # resource monitor — per-core CPU, memory, disk I/O, network, processes
-                 # AMDGPU plugin active on fiji via the AMD GPU module
+                 # AMDGPU plugin active on fiji-desktop via the AMD GPU module
     gdu          # TUI disk usage analyzer — first tool for investigating /persist usage
                  # Usage: gdu /persist
 

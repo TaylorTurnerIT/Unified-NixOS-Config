@@ -1,7 +1,7 @@
 # home/taylor/default.nix
 # Home Manager entrypoint for taylor — imports all user config files.
 # NO hardware conditionals here. Hardware divergence lives in modules/ only.
-# Everything here is identical on fiji and tuvalu.
+# Everything here is identical on fiji-desktop-desktop and tuvalu-laptop.
 { pkgs, lib, inputs, tags, ... }:
 {
   imports = [

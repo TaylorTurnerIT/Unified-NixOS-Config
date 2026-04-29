@@ -1,6 +1,6 @@
 # modules/hardware/gpu/intel.nix
 # Intel iGPU driver and VA-API hardware video decode.
-# Applied to tuvalu (laptop) only via tags.intelGpu = true.
+# Applied to tuvalu-laptop-laptop (laptop) only via tags.intelGpu = true.
 # i7-10610U uses iHD driver (intel-media-driver) — NOT the legacy i965 driver.
 { pkgs, ... }:
 {

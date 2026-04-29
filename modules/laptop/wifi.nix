@@ -1,5 +1,5 @@
 # modules/laptop/wifi.nix
-# WiFi configuration for tuvalu.
+# WiFi configuration for tuvalu-laptop.
 # NetworkManager handles connection management.
 # iwlwifi power save level 2 — balances battery savings against latency spikes.
 # Level 5 (maximum) causes noticeable latency spikes during remote work; level 2 does not.

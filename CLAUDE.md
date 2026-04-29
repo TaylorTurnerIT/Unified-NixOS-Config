@@ -13,7 +13,7 @@ See: docs/ACTION_PLAN.md
 
 ## Quick Reference
 
-Hostnames: fiji (desktop), tuvalu (laptop)
+Hostnames: fiji-desktop (desktop), tuvalu-laptop (laptop)
 Domain: tongatime.us | Internal: internal.tongatime.us | Realm: TONGATIME.US
 Phase: 1 — Personal machines only. Server deferred to Phase 2.
 

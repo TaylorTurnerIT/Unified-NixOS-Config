@@ -1,6 +1,6 @@
 # modules/hardware/gpu/amd.nix
 # AMD GPU driver, compute, Vulkan tuning, and monitoring tools.
-# Applied to fiji (desktop) only via tags.amdGpu = true.
+# Applied to fiji-desktop (desktop) only via tags.amdGpu = true.
 { pkgs, ... }:
 {
   # AMD GPU driver — amdgpu kernel module

@@ -22,10 +22,10 @@
     # Ephemeral root — tmpfs / with explicit persistence declarations
     impermanence.url = "github:nix-community/impermanence";
 
-    # Hardware-specific modules — ThinkPad T15 Gen1 (tuvalu) imports from here
+    # Hardware-specific modules — ThinkPad T15 Gen1 (tuvalu-laptop) imports from here
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # Proton-GE as a declarative Nix derivation — desktop (fiji) only
+    # Proton-GE as a declarative Nix derivation — desktop (fiji-desktop) only
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,8 +47,8 @@
     nixosConfigurations = {
 
       # Desktop — MS-7A71, i7-7700K, RX 6700 XT, 3 monitors
-      fiji = mkHost {
-        hostname = "fiji";
+      fiji-desktop = mkHost {
+        hostname = "fiji-desktop";
         system = system;
         tags = {
           laptop       = false;
@@ -61,8 +61,8 @@
       };
 
       # Laptop — ThinkPad T15 Gen1, i7-10610U, Intel UHD, 32GB
-      tuvalu = mkHost {
-        hostname = "tuvalu";
+      tuvalu-laptop = mkHost {
+        hostname = "tuvalu-laptop";
         system = system;
         tags = {
           laptop       = true;

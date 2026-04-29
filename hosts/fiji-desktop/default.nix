@@ -1,10 +1,10 @@
-# hosts/fiji/default.nix
+# hosts/fiji-desktop/default.nix
 # Desktop — MS-7A71 | i7-7700K | AMD RX 6700 XT | 32GB DDR4
 # Three monitors: 1920x1080@60, 1920x1080@144, 2560x1440@180 HDR
 # Tags drive module composition via lib/mkHost.nix — do not import modules directly here.
 { config, pkgs, lib, tags, ... }:
 {
-  networking.hostName = "fiji";
+  networking.hostName = "fiji-desktop";
 
   # ---------------------------------------------------------------------------
   # Local user — Phase 1 only.
@@ -50,8 +50,8 @@
   # ---------------------------------------------------------------------------
   # sops-nix — Phase 2. Uncomment when secrets are needed.
   # ---------------------------------------------------------------------------
-  # sops.defaultSopsFile = ../../secrets/fiji.yaml;
-  # sops.age.keyFile     = "/persist/etc/age/fiji.key";
+  # sops.defaultSopsFile = ../../secrets/fiji-desktop.yaml;
+  # sops.age.keyFile     = "/persist/etc/age/fiji-desktop.key";
 
   system.stateVersion = "25.05";
 }

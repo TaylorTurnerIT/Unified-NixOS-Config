@@ -1,7 +1,7 @@
 # modules/laptop/battery.nix
-# Battery protection and low-battery behavior for tuvalu.
+# Battery protection and low-battery behavior for tuvalu-laptop.
 # Hibernate at 10% — protects against data loss during sessions with degraded battery.
-# Applied to tuvalu only via tags.laptop = true.
+# Applied to tuvalu-laptop only via tags.laptop = true.
 { pkgs, ... }:
 {
   # UPower — battery monitoring daemon
