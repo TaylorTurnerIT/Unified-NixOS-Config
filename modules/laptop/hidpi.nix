@@ -4,7 +4,7 @@
 # Applied to tuvalu-laptop only via tags.laptop = true.
 { ... }:
 {
-  # Wayland scaling — 1.25x for the built-in 1920x1080 16" panel
+  # Wayland scaling
   # KDE/KWin picks this up automatically on Wayland
   environment.sessionVariables = {
     QT_SCALE_FACTOR    = "1.25";

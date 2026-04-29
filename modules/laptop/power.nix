@@ -1,5 +1,5 @@
 # modules/laptop/power.nix
-# Power management for tuvalu-laptop-laptop (laptop) — battery life over performance.
+# Power management for tuvalu-laptop — battery life over performance.
 # auto-cpufreq: dynamic CPU frequency scaling based on actual load, not just AC/battery state.
 # Applied to tuvalu-laptop only via tags.laptop = true.
 { pkgs, ... }:
