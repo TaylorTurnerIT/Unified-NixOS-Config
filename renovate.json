@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate Bot — automated dependency update PRs with changelogs",
+  "extends": ["config:base"],
+  "nix": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "Automerge patch-level container digest bumps with passing CI",
+      "matchUpdateTypes": ["digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Minor and major updates always require manual review",
+      "matchUpdateTypes": ["minor", "major"],
+      "automerge": false
+    }
+  ],
+  "prConcurrentLimit": 5,
+  "labels": ["renovate", "dependencies"]
+}
