@@ -11,6 +11,8 @@
       "steam-unwrapped"
     ];
 
+  services.pipewire.lowLatency.enable = true;
+
   programs.steam = {
     enable = true;
 
