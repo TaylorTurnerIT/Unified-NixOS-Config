@@ -8,6 +8,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint     = "/boot/efi";
 
+  # Add support fro the fingerprint reader on tuvalu-laptop.
+  services.fprintd.enable = true;
+
   # Filesystems
   fileSystems."/" = {
     device  = "none";

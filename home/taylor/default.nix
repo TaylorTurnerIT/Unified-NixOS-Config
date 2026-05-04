@@ -24,8 +24,5 @@
   # XDG directories
   xdg.enable = true;
 
-  # Add support fro the fingerprint reader on tuvalu-laptop.
-  services.fprintd.enable = true;
-
   home.stateVersion = "25.05";
 }
