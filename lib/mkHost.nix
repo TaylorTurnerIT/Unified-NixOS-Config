@@ -80,8 +80,8 @@ nixpkgs.lib.nixosSystem {
     ++ nixGamingModules
     ++ [
       # Host-specific config
-      ./hosts/${hostname}/default.nix
-      ./hosts/${hostname}/hardware.nix
+      ../hosts/${hostname}/default.nix
+      ../hosts/${hostname}/hardware.nix
 
       # Home Manager as NixOS module — applies system + user config in one switch
       home-manager.nixosModules.home-manager
