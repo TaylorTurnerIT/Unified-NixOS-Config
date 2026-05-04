@@ -6,6 +6,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable      = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint     = "/boot/efi";
 
   # Filesystems
   fileSystems."/" = {
@@ -32,9 +33,9 @@
   };
 
   fileSystems."/persist" = {
-    device  = "/dev/disk/by-label/persist";
-    fsType  = "btrfs";
-    options = [ "compress=zstd" "noatime" ];
+    device        = "/dev/disk/by-label/persist";
+    fsType        = "btrfs";
+    options       = [ "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
