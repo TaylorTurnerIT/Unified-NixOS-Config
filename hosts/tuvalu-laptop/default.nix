@@ -57,6 +57,7 @@
       "/var/lib/fprint"
       "/var/log"
       "/etc/NetworkManager/system-connections"
+      "/home/taylor/.ssh"    # add this
     ];
     files = [
       "/etc/machine-id"
