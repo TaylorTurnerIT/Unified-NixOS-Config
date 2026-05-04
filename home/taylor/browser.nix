@@ -1,5 +1,5 @@
 # home/taylor/browser.nix
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
