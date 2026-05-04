@@ -10,7 +10,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: [tuvalu-laptop, fiji-desktop]
+        host: [tuvalu-laptop] 
+        # Temporarily only build the laptop config to speed up CI while I work on the desktop config. Once the desktop config is ready, re-enable it here.
+        # host: [tuvalu-laptop, fiji-desktop]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
