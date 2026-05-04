@@ -24,6 +24,9 @@
     # Useful for games that misbehave with HDR or multi-monitor setups
     gamescopeSession.enable = true;
 
+    # Enable the nix-gaming platform optimizations
+    platformOptimizations.enable = true;
+
     # steam-run — FHS chroot for native Linux binaries that expect /lib, /usr/lib
     # Use: steam-run <binary> when a native Linux game refuses to launch on NixOS
     package = pkgs.steam.override {

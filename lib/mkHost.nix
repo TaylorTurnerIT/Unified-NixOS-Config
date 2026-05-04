@@ -64,7 +64,9 @@ let
 
   # nix-gaming flake modules — desktop only
   nixGamingModules = lib.optionals tags.gaming [
-    nix-gaming.nixosModules.default
+    nix-gaming.nixosModules.platformOptimizations
+    nix-gaming.nixosModules.steamCompat
+    nix-gaming.nixosModules.pipewireLowLatency
   ];
 
 in

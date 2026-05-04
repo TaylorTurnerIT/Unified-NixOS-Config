@@ -6,6 +6,9 @@
 {
   networking.hostName = "fiji-desktop";
 
+  # Use the Xanmod kernel for improved gaming performance
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+
   # ---------------------------------------------------------------------------
   # Local user — Phase 1 only.
   # Phase 2: replaced by SSSD/FreeIPA enrollment. This account becomes break-glass.
