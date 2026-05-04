@@ -16,44 +16,44 @@ let
 
   # Core modules — always applied, no exceptions
   coreModules = [
-    ./modules/core/nix.nix
-    ./modules/core/locale.nix
-    ./modules/core/security.nix
-    ./modules/core/ssh.nix
+    ../modules/core/nix.nix
+    ../modules/core/locale.nix
+    ../modules/core/security.nix
+    ../modules/core/ssh.nix
     # ssh-recording.nix — DEFERRED to Phase 2 (requires tlog + SSSD)
   ];
 
   # Desktop environment — all graphical hosts
   desktopModules = [
-    ./modules/desktop/kde.nix
-    ./modules/desktop/wayland.nix
-    ./modules/desktop/fonts.nix
+    ../modules/desktop/kde.nix
+    ../modules/desktop/wayland.nix
+    ../modules/desktop/fonts.nix
   ];
 
   # GPU modules — selected by tag
   gpuModules =
-    lib.optional tags.amdGpu   ./modules/hardware/gpu/amd.nix ++
-    lib.optional tags.intelGpu ./modules/hardware/gpu/intel.nix;
+    lib.optional tags.amdGpu   ../modules/hardware/gpu/amd.nix ++
+    lib.optional tags.intelGpu ../modules/hardware/gpu/intel.nix;
 
   # Display modules
   displayModules =
-    lib.optional tags.hdr ./modules/hardware/displays/hdr.nix;
+    lib.optional tags.hdr ../modules/hardware/displays/hdr.nix;
 
   # Gaming modules — desktop only
   gamingModules = lib.optionals tags.gaming [
-    ./modules/gaming/steam.nix
-    ./modules/gaming/proton.nix
-    ./modules/gaming/tools.nix
-    ./modules/gaming/launchers.nix
-    ./modules/gaming/controllers.nix
+    ../modules/gaming/steam.nix
+    ../modules/gaming/proton.nix
+    ../modules/gaming/tools.nix
+    ../modules/gaming/launchers.nix
+    ../modules/gaming/controllers.nix
   ];
 
   # Laptop modules
   laptopModules = lib.optionals tags.laptop [
-    ./modules/laptop/power.nix
-    ./modules/laptop/hidpi.nix
-    ./modules/laptop/wifi.nix
-    ./modules/laptop/battery.nix
+    ../modules/laptop/power.nix
+    ../modules/laptop/hidpi.nix
+    ../modules/laptop/wifi.nix
+    ../modules/laptop/battery.nix
   ];
 
   # nixos-hardware — laptop only, exact module verified at install time
