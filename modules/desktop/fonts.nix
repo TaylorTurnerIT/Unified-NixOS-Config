@@ -10,7 +10,8 @@
       fira-code
       fira-code-symbols
       font-awesome
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
     ];
     fontconfig.defaultFonts = {
       monospace = [ "FiraCode Nerd Font" ];
