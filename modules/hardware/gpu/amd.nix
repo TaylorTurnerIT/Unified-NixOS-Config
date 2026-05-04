@@ -11,18 +11,13 @@
     enable      = true;
     enable32Bit = true;  # without this, large portion of game back-catalogue fails silently
     extraPackages = with pkgs; [
-      amdvlk           # AMD Vulkan driver (alternative to RADV)
       rocmPackages.clr # ROCm compute runtime
-    ];
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
     ];
   };
 
   # RADV (Mesa Vulkan) environment variable tuning
   environment.sessionVariables = {
-    RADV_PERFTEST = "gpl";        # graphics pipeline library — reduces stutter
-    AMD_VULKAN_ICD = "RADV";      # prefer RADV over amdvlk for gaming
+    RADV_PERFTEST = "gpl"; # graphics pipeline library — reduces stutter
   };
 
   environment.systemPackages = with pkgs; [
