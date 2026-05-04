@@ -1,5 +1,4 @@
 # modules/laptop/power.nix
-# Power management for tuvalu (laptop) — battery life over performance.
 { pkgs, ... }:
 {
   services.auto-cpufreq = {
@@ -19,17 +18,14 @@
     };
   };
 
-  # Disable power-profiles-daemon — conflicts with auto-cpufreq
   services.power-profiles-daemon.enable = false;
 
-  services.logind = {
-    lidSwitch              = "suspend";
-    lidSwitchExternalPower = "ignore";
-    settings.Login = {
-      IdleAction    = "suspend";
-      IdleActionSec = "5min";
-      HandlePowerKey = "suspend";
-    };
+  services.logind.settings.Login = {
+    HandleLidSwitch             = "suspend";
+    HandleLidSwitchExternalPower = "ignore";
+    IdleAction                  = "suspend";
+    IdleActionSec               = "5min";
+    HandlePowerKey              = "suspend";
   };
 
   powerManagement.enable = true;
