@@ -1,18 +1,15 @@
 # modules/laptop/power.nix
-# Power management for tuvalu-laptop — battery life over performance.
-# auto-cpufreq: dynamic CPU frequency scaling based on actual load, not just AC/battery state.
-# Applied to tuvalu-laptop only via tags.laptop = true.
+# Power management for tuvalu (laptop) — battery life over performance.
 { pkgs, ... }:
 {
-  # auto-cpufreq — smarter than TLP for dynamic workloads
   services.auto-cpufreq = {
     enable = true;
     settings = {
       battery = {
         governor         = "powersave";
-        turbo            = "auto";       # allows turbo when genuinely needed
+        turbo            = "auto";
         energy_perf_pref = "power";
-        scaling_max_freq = 2300000;      # cap at base clock on battery (2.3GHz i7-10610U)
+        scaling_max_freq = 2300000;
       };
       charger = {
         governor         = "performance";
@@ -22,17 +19,18 @@
     };
   };
 
-  # Suspend and lid behavior
+  # Disable power-profiles-daemon — conflicts with auto-cpufreq
+  services.power-profiles-daemon.enable = false;
+
   services.logind = {
-    lidSwitch             = "suspend";
-    lidSwitchExternalPower = "ignore";   # lid close while charging: do nothing
-    extraConfig = ''
-      IdleAction=suspend
-      IdleActionSec=5min
-      HandlePowerKey=suspend
-    '';
+    lidSwitch              = "suspend";
+    lidSwitchExternalPower = "ignore";
+    settings.Login = {
+      IdleAction    = "suspend";
+      IdleActionSec = "5min";
+      HandlePowerKey = "suspend";
+    };
   };
 
-  # Power button: suspend rather than shutdown
   powerManagement.enable = true;
 }

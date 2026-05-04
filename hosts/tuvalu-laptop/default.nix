@@ -1,35 +1,61 @@
 # hosts/tuvalu-laptop/default.nix
-# Laptop — ThinkPad T15 Gen1 (20S7S4CW06) | i7-10610U | Intel UHD | 32GB DDR4
-# 1920x1080 @ 1.25x scaling, 16", 60Hz built-in
-# Tags drive module composition via lib/mkHost.nix — do not import modules directly here.
 { config, pkgs, lib, tags, ... }:
 {
   networking.hostName = "tuvalu-laptop";
 
-  # ---------------------------------------------------------------------------
-  # Local user — Phase 1 only.
-  # Phase 2: replaced by SSSD/FreeIPA enrollment. This account becomes break-glass.
-  # ---------------------------------------------------------------------------
+  # Bootloader
+  boot.loader.systemd-boot.enable      = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Filesystems
+  fileSystems."/" = {
+    device  = "none";
+    fsType  = "tmpfs";
+    options = [ "defaults" "size=2G" "mode=755" ];
+  };
+
+  fileSystems."/boot" = {
+    device  = "/dev/disk/by-label/nixboot";
+    fsType  = "ext4";
+  };
+
+  fileSystems."/boot/efi" = {
+    device  = "/dev/disk/by-label/BOOT";
+    fsType  = "vfat";
+    options = [ "umask=0077" ];
+  };
+
+  fileSystems."/nix" = {
+    device  = "/dev/disk/by-label/nixstore";
+    fsType  = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+  };
+
+  fileSystems."/persist" = {
+    device  = "/dev/disk/by-label/persist";
+    fsType  = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+    neededForBoot = true;
+  };
+
+  swapDevices = [];
+
+  # Local user — Phase 1 only. Becomes break-glass in Phase 2.
   users.users.taylor = {
     isNormalUser = true;
     description  = "Taylor";
     extraGroups  = [ "wheel" "networkmanager" "video" "audio" ];
-    # Password set via passwd on first boot
   };
 
-  # ---------------------------------------------------------------------------
-  # Impermanence — root is tmpfs, only declared paths survive reboots
-  # ---------------------------------------------------------------------------
+  # Impermanence
   environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
       "/var/lib/nixos"
       "/var/lib/bluetooth"
-      "/var/lib/fprint"         # fingerprint enrollment
+      "/var/lib/fprint"
       "/var/log"
-      "/etc/NetworkManager/system-connections"  # saved WiFi networks
-      # Phase 2 additions:
-      # "/var/lib/sss"          # SSSD credential cache — mandatory for offline login
+      "/etc/NetworkManager/system-connections"
     ];
     files = [
       "/etc/machine-id"
@@ -37,12 +63,6 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
-
-  # ---------------------------------------------------------------------------
-  # sops-nix — Phase 2
-  # ---------------------------------------------------------------------------
-  # sops.defaultSopsFile = ../../secrets/tuvalu-laptop.yaml;
-  # sops.age.keyFile     = "/persist/etc/age/tuvalu-laptop.key";
 
   system.stateVersion = "25.05";
 }
