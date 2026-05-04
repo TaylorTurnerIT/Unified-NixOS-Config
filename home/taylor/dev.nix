@@ -23,5 +23,6 @@
   home.packages = with pkgs; [
     delta
     lazygit
+    lapce
   ];
 }
