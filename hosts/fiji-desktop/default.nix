@@ -10,6 +10,39 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
   # ---------------------------------------------------------------------------
+  # Bootloader & Core Filesystems (Impermanence Layout)
+  # ---------------------------------------------------------------------------
+  boot.loader.systemd-boot.enable      = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint     = "/boot/efi";
+
+  fileSystems."/" = {
+    device  = "none";
+    fsType  = "tmpfs";
+    options = [ "defaults" "size=2G" "mode=755" ];
+  };
+  fileSystems."/boot" = {
+    device  = "/dev/disk/by-label/nixboot";
+    fsType  = "ext4";
+  };
+  fileSystems."/boot/efi" = {
+    device  = "/dev/disk/by-label/BOOT";
+    fsType  = "vfat";
+    options = [ "umask=0077" ];
+  };
+  fileSystems."/nix" = {
+    device  = "/dev/disk/by-label/nixstore";
+    fsType  = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+  };
+  fileSystems."/persist" = {
+    device        = "/dev/disk/by-label/persist";
+    fsType        = "btrfs";
+    options       = [ "compress=zstd" "noatime" ];
+    neededForBoot = true;
+  };
+
+  # ---------------------------------------------------------------------------
   # Local user — Phase 1 only.
   # Phase 2: replaced by SSSD/FreeIPA enrollment. This account becomes break-glass.
   # ---------------------------------------------------------------------------
