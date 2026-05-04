@@ -10,6 +10,7 @@
     ./dev.nix
     ./security.nix
     ./sync.nix
+    ./browser.nix
   ]
   # streaming.nix — laptop only (Moonlight client)
   ++ lib.optional tags.laptop ./streaming.nix;
@@ -22,6 +23,9 @@
 
   # XDG directories
   xdg.enable = true;
+
+  # Add support fro the fingerprint reader on tuvalu-laptop.
+  services.fprintd.enable = true;
 
   home.stateVersion = "25.05";
 }
