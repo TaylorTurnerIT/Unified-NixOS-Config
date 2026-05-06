@@ -33,4 +33,7 @@
   # Allow unfree packages — scoped per module, not global
   # Gaming module handles steam/nvidia allowUnfreePredicate separately
   nixpkgs.config.allowUnfree = false;
+
+  # Enable fish shell
+  programs.fish.enable = true;
 }
