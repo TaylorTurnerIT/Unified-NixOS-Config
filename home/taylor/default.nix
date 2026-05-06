@@ -11,6 +11,7 @@
     ./security.nix
     ./sync.nix
     ./browser.nix
+    ./social.nix
   ]
   # streaming.nix — laptop only (Moonlight client)
   ++ lib.optional tags.laptop ./streaming.nix;
