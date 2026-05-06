@@ -34,6 +34,7 @@
     # Shell aliases — override GNU coreutils with modern replacements
     shellAliases = {
       # eza replaces ls — icons, git status, tree view
+      l    = "eza --icons -la"
       ls   = "eza --icons";
       ll   = "eza --icons -la";
       la   = "eza --icons -a";
@@ -58,6 +59,10 @@
       # Convenience
       g    = "git";
       lg   = "lazygit";
+      c    = "clear"
+
+      # Manual Building
+      nix-build = "sudo nixos-rebuild switch --flake .#tuvalu-laptop"
     };
 
     # Interactive shell initialization — runs on every Fish session start

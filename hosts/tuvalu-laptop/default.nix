@@ -48,6 +48,7 @@
   users.users.taylor = {
     isNormalUser = true;
     description  = "Taylor";
+    shell = pkgs.fish;
     extraGroups  = [ "wheel" "networkmanager" "video" "audio" ];
     hashedPassword = "$6$6M/jNHGdUr7zqKnN$0L7./j8Z.QxkKWWG7jA8iySwr3q8XU5JZ4Ln/bjEtqyMvyirZeWh8YoJQ46AK8XY/SdJ9PVFjROzBpuYTi6S.1";
   };
