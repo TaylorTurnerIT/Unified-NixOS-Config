@@ -4,6 +4,9 @@
   programs.ssh = {
     enable                = true;
     enableDefaultConfig   = false;
+    matchBlocks."github.com" = {
+          identityFile = "~/.ssh/github"; # Matches your manual filename
+    };
     matchBlocks."*" = {
       serverAliveInterval = 60;
       serverAliveCountMax = 3;
