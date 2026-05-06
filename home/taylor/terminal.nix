@@ -3,7 +3,7 @@
 # Fully synced between fiji and tuvalu — no hardware conditionals.
 { pkgs, ... }:
 {
-  gtk.enable = true;
+  gtk.enable = false;
 
   programs.zellij = {
     enable = true;
