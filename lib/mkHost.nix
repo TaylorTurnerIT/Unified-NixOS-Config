@@ -90,6 +90,7 @@ nixpkgs.lib.nixosSystem {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "hm-backup";
         home-manager.users.taylor = import ../home/taylor/default.nix;
         home-manager.extraSpecialArgs = { inherit inputs tags; };
       }
