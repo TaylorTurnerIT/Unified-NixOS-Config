@@ -20,9 +20,18 @@
     };
   };
 
+  # GitHub CLI configuration
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
+    };
+  };
+
   home.packages = with pkgs; [
     delta
     lazygit
-    lapce
+    zed-editor
+    tea
   ];
 }
