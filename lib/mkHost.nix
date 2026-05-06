@@ -19,7 +19,8 @@ let
     ../modules/core/nix.nix
     ../modules/core/locale.nix
     ../modules/core/security.nix
-    ../modules/core/ssh.nix
+    ../modules/core/ssh.
+    ../modules/core/vpn.nix
     # ssh-recording.nix — DEFERRED to Phase 2 (requires tlog + SSSD)
   ];
 
