@@ -34,8 +34,8 @@
     # Shell aliases — override GNU coreutils with modern replacements
     shellAliases = {
       # eza replaces ls — icons, git status, tree view
-      l    = "eza --icons -la"
       ls   = "eza --icons";
+      l    = "ll";
       ll   = "eza --icons -la";
       la   = "eza --icons -a";
       tree = "eza --icons --tree";
