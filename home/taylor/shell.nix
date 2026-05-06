@@ -61,8 +61,8 @@
       lg   = "lazygit";
       c    = "clear"
 
-      # Manual Building
-      nix-build = "sudo nixos-rebuild switch --flake .#tuvalu-laptop"
+      # Manual Building with early stop via flake check
+      nix-build = "nix flake check && sudo nixos-rebuild switch --flake .#tuvalu-laptop"
     };
 
     # Interactive shell initialization — runs on every Fish session start
