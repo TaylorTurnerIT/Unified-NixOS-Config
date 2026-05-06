@@ -60,6 +60,7 @@
       "/var/lib/nixos"
       "/var/lib/bluetooth"
       "/var/lib/fprint"
+      "/var/lib/tailscale"
       "/var/log"
       "/etc/NetworkManager/system-connections"
       "/home/taylor/"
