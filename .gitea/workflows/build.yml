@@ -15,7 +15,7 @@ jobs:
         # host: [tuvalu-laptop, fiji-desktop]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Nix
         uses: cachix/install-nix-action@v25
